@@ -7,7 +7,7 @@ function ensureAuthenticated(request, next) {
   const authHeader = request.headers.authorization;
 
   if(!authHeader) {
-    throw new AppError("JWT Token não informado", 401);
+    throw new AppError("Token ñ informado", 401);
   }
 
   const [token] = authHeader.split(" "); 
@@ -21,7 +21,7 @@ function ensureAuthenticated(request, next) {
     return next();
 
   } catch {
-    throw new AppError ("JWT Token inválido", 401);
+    throw new AppError ("Token inválido", 401);
   }
 }
 
